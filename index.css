@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-luxury-950 text-luxury-100 antialiased selection:bg-gold-400 selection:text-luxury-950;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    background-color: #09030e;
+    background-image: 
+      radial-gradient(circle at 50% 0%, rgba(95, 38, 140, 0.22) 0%, rgba(18, 7, 29, 0) 65%),
+      radial-gradient(circle at 100% 60%, rgba(56, 28, 84, 0.15) 0%, rgba(9, 3, 14, 0) 50%);
+    background-attachment: fixed;
+  }
+
+  /* Custom Luxury Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #09030e;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #26113d;
+    border-radius: 9999px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #d4af37;
+  }
+}
+
+/* Luxury gold text gradients */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #faeed1 0%, #d4af37 50%, #aa821f 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-silver-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-border {
+  border: 1px solid rgba(212, 175, 55, 0.35);
+}
+
+.gold-border-subtle {
+  border: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+/* Glassmorphism panels */
+.glass-panel {
+  background: rgba(22, 10, 36, 0.75);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(212, 175, 55, 0.18);
+}
+
+.glass-dropdown {
+  background: rgba(18, 7, 29, 0.96);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+}
+
+.glass-card {
+  background: linear-gradient(165deg, rgba(29, 13, 47, 0.8) 0%, rgba(18, 7, 29, 0.9) 100%);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+.glass-card:hover {
+  border-color: rgba(212, 175, 55, 0.45);
+  box-shadow: 0 10px 35px -10px rgba(0, 0, 0, 0.8), 0 0 25px rgba(212, 175, 55, 0.18);
+}
+
+/* Shimmer animation */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.animate-shimmer {
+  animation: shimmer 2.5s infinite;
+}
+
+/* 3D Perspective for carousel */
+.perspective-1000 {
+  perspective: 1000px;
+}
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+/* Print optimizations for order receipt & invoices */
+@media print {
+  @page {
+    margin: 1.2cm;
+    size: portrait;
+  }
+  body {
+    background: #ffffff !important;
+    color: #111111 !important;
+  }
+  header, nav, footer, .print\:hidden, aside, button, .fixed {
+    display: none !important;
+  }
+  main {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .glass-card, .glass-panel {
+    background: #ffffff !important;
+    border: 1px solid #d1d5db !important;
+    border-radius: 8px !important;
+    box-shadow: none !important;
+    color: #111111 !important;
+    padding: 16px !important;
+  }
+  h1, h2, h3, h4, p, span, strong, div {
+    color: #111111 !important;
+    text-shadow: none !important;
+  }
+  .text-gold-gradient {
+    -webkit-text-fill-color: #111111 !important;
+    color: #111111 !important;
+    font-weight: 800 !important;
+  }
+  .bg-luxury-900\/60, .bg-luxury-950, .bg-luxury-900 {
+    background-color: #f9fafb !important;
+    border-color: #e5e7eb !important;
+  }
+  .border-luxury-800, .border-luxury-700 {
+    border-color: #e5e7eb !important;
+  }
+}
+
